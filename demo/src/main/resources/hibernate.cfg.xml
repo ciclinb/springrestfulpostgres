@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+<!--         <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>   -->
+<!--         <property name="connection.url">${usps.connection_url}</property>   -->
+<!--         <property name="connection.username">${usps.connection_username}</property>   -->
+<!--         <property name="connection.password">${usps.connection_password}</property>   -->
+
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>  
+        <property name="connection.url">jdbc:oracle:thin:xe_lbo/xe_lbo@//localhost:1521</property>  
+        <property name="connection.username">lbo</property>  
+        <property name="connection.password">1234</property>  
+  	 	<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+<!--
+   		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/uspoliticians</property> 
+    	<property name="hibernate.connection.username">lbo</property> 
+    	<property name="hibernate.connection.password">1234</property> 
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>   
+-->  	 	  		
+  		<property name="show_sql">false</property>
+  		<property name="format_sql">true</property>	
+  		<property name="hibernate.current_session_context_class">thread</property>
+  		<property name="connection.pool_size">1</property>  
+        
+  		<mapping class="main.java.entity.Politician"></mapping>
+  		<mapping class="main.java.entity.District"></mapping>
+  		<mapping class="main.java.entity.Circuit"></mapping>
+  		<mapping class="main.java.entity.Question"></mapping>
+  		<mapping class="main.java.entity.QuestionAnswer"></mapping>
+  		<mapping class="main.java.entity.PoliticianAnswer"></mapping>
+  		
+	</session-factory>
+</hibernate-configuration>
